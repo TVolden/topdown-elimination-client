@@ -1,0 +1,16 @@
+[remap]
+
+importer="binarysolo.shoebox_import_spritesheet"
+type="Resource"
+uid="uid://ce6i0x8jnwrja"
+path="res://.godot/imported/spritesheet_characters.xml-28ce7ff3614976e3b6d3f83063b825cb.res"
+
+[deps]
+
+source_file="res://assets/kenney/Topdown Shooter/Spritesheet/spritesheet_characters.xml"
+dest_files=["res://.godot/imported/spritesheet_characters.xml-28ce7ff3614976e3b6d3f83063b825cb.res"]
+
+[params]
+
+Format=0
+TileSize=Vector2i(0, 0)

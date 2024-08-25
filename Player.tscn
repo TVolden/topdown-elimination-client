@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmc8pj7yad2id"]
+
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="1_debe8"]
+[ext_resource type="Texture2D" uid="uid://bb3k047pv0ksh" path="res://assets/kenney/Topdown Shooter/PNG/Man Red/manRed_machine.png" id="2_n63uk"]
+[ext_resource type="Texture2D" uid="uid://c4dwfctm3w4r5" path="res://assets/kenney/Topdown Tanks/PNG/Bullets/bulletYellow.png" id="3_pvf04"]
+[ext_resource type="Texture2D" uid="uid://dcdavg4bktgex" path="res://assets/kenney/UI Pack - Sci-fi/PNG/barHorizontal_white_mid.png" id="4_50e2x"]
+[ext_resource type="Texture2D" uid="uid://b6pw018k1ksut" path="res://assets/kenney/UI Pack - Sci-fi/PNG/barHorizontal_green_mid.png" id="5_xouex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi6xk"]
+size = Vector2(37, 38)
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("ammo_bar", "healthbar")]
+script = ExtResource("1_debe8")
+ammo_bar = NodePath("Ammo")
+healthbar = NodePath("Healthbar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_hi6xk")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("2_n63uk")
+
+[node name="Ammo" type="Node2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="Bullet1" type="Sprite2D" parent="Ammo"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pvf04")
+
+[node name="Bullet2" type="Sprite2D" parent="Ammo"]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pvf04")
+
+[node name="Bullet3" type="Sprite2D" parent="Ammo"]
+position = Vector2(16, 0)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pvf04")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_left = -23.0
+offset_top = -42.0
+offset_right = 157.0
+offset_bottom = -16.0
+scale = Vector2(0.25, 0.25)
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_50e2x")
+texture_progress = ExtResource("5_xouex")

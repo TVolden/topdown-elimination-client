@@ -1,13 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bisxpib70x6jd"]
+[gd_scene load_steps=4 format=3 uid="uid://bisxpib70x6jd"]
 
+[ext_resource type="Script" path="res://colyseus-client.gd" id="1_np7ip"]
 [ext_resource type="PackedScene" uid="uid://dmc8pj7yad2id" path="res://Player.tscn" id="1_sw8b5"]
 [ext_resource type="PackedScene" uid="uid://hyu4nf66smcn" path="res://bullet.tscn" id="2_oqqfp"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_np7ip")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("bullet") instance=ExtResource("1_sw8b5")]
-bullet = NodePath("../Bullet2")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_sw8b5")]
+script = null
 
 [node name="Bullet2" parent="." instance=ExtResource("2_oqqfp")]

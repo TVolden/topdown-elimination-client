@@ -10,6 +10,6 @@ script = ExtResource("1_np7ip")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_sw8b5")]
-script = null
+visible = false
 
 [node name="Bullet2" parent="." instance=ExtResource("2_oqqfp")]

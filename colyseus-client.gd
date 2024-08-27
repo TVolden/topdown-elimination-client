@@ -18,10 +18,25 @@ class Player extends colyseus.Schema:
 	func _to_string():
 		return str("(",self.x,",",self.y,")")
 
+class Bullet extends colyseus.Schema:
+	static func define_fields():
+		return [
+			colyseus.Field.new("x", colyseus.NUMBER),
+			colyseus.Field.new("y", colyseus.NUMBER),
+			colyseus.Field.new("vel_x", colyseus.NUMBER),
+			colyseus.Field.new("vel_y", colyseus.NUMBER),
+		]
+	
+	var node
+	
+	func _to_string():
+		return str("(",self.x,",",self.y,")")
+
 class RoomState extends colyseus.Schema:
 	static func define_fields():
 		return [
 			colyseus.Field.new("players", colyseus.MAP, Player),
+			colyseus.Field.new("bullets", colyseus.MAP, Bullet),
 		]
 var room:colyseus.Room
 
@@ -75,5 +90,7 @@ func _physics_process(delta):
 		var input_direction = Input.get_vector("left", "right", "up", "down")
 		if !input_direction.is_zero_approx():
 			room.send("move", {x=input_direction.x, y=input_direction.y})
+		if Input.is_action_pressed("shoot"):
+			room.send("shoot")
 		var mouse = get_global_mouse_position()
 		room.send("aim", {x=mouse.x, y=mouse.y})
